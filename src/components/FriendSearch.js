@@ -1,8 +1,4 @@
 import { useEffect, useState } from "react";
-import Friend from "./Friend";
-
-
-
 
 const FriendSearch = () =>{
     const [friendsData, setFriendsData] = useState('');

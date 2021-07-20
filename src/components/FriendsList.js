@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import FriendsPage from './FriendsPage';
 import Friend from './Friend';
 
-function FriendsList({data}) {
+function FriendsList() {
 
  
-  const initialData = data.map(e => e.name)
+  // const initialData = data.map(e => e.name)
 //const friends = initialData;
- const [friends, setFriends] = useState([initialData]);
+ const [friends, setFriends] = useState([]);
   // /^\s*$/ --> regex used looking for blank/empty lines. 
   const addFriend = friend => {
     if (!friend.text || /^\s*$/.test(friend.text)) {
@@ -15,8 +15,9 @@ function FriendsList({data}) {
     }
 
     const newFriends = [friend, ...friends];
-
     setFriends(newFriends);
+    console.log(...friends);
+
   };
 
   const removeFriend = id => {

@@ -14,18 +14,22 @@ function FriendsPage (props) {
   };
 
   const handleSubmit = e => {
-    console.log(e.target.value);
+    console.log(e.currentTarget);
     e.preventDefault();
-    fetch('http://localhost:3001/friends',{
-      method:'POST',
-      headers: {
-        'content-type':'application/json'
-      },
-      body: JSON.stringify({id:Math.floor(Math.random() * 10000),
-      name:e.target.value
-      })
-    })
-    
+    // fetch('http://localhost:3001/friends',{
+    //   method:'POST',
+    //   headers: {
+    //     'content-type':'application/json'
+    //   },
+    //   body: JSON.stringify({id:Math.floor(Math.random() * 10000),
+    //   name:e.target.value
+    //   })
+    // })
+
+    props.onSubmit({
+      id: Math.floor(Math.random() * 10000),
+      text: input
+    });    
     setInput('');
   };
 
@@ -40,7 +44,7 @@ function FriendsPage (props) {
             className='todo-input'
             ref={inputRef}
           />
-            <button value={input} onClick={handleSubmit} className='todo-button'>
+            <button onClick={handleSubmit} className='todo-button'>
             Add Friend
           </button>
 

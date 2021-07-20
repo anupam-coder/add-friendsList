@@ -2,17 +2,17 @@ import React, { useEffect, useState } from 'react';
 import { RiCloseCircleLine, RiStarLine } from 'react-icons/ri';
 
 const Friend = ({ friends, completeFriend, removeFriend }) => {
-const Initialfriends = friends[0];
+const Initialfriends = [...friends];
 
   const [highlight, setHighlight] = useState(false);
-  console.log(Initialfriends);
+  console.log(...friends);
   return Initialfriends.map((friend, index) => (
     <div
       className={'todo-row'}
       key={index}
     >
       <div key={friend.id}>
-        {friend}
+        {friend.text}
         <div>
           {"is your friend"}
         </div>
